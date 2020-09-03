@@ -23,4 +23,21 @@ public class Solution {
 
         return left;
     }
+
+    /**
+     * 递归 先找到最后一位，然后
+     * @param head
+     * @return
+     */
+    public ListNode reverseList2(ListNode head){
+        if(head.next==null || head == null )
+            return head;
+        // p是反转后的链表头
+        ListNode p = reverseList2(head.next);
+        // 为了使链表的第k+1位的下一位变成链表的第k位，所欲需要k.next.next = k
+        head.next.next = head;
+        // 为了保证尾节点的next能指向null
+        head.next=null;
+        return p;
+    }
 }
