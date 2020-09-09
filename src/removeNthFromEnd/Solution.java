@@ -52,8 +52,8 @@ public class Solution {
         return tmp.next;
     }
 
- //todo 别人写的 明天在看
-    public ListNode removeNthFromEnd(ListNode head, int n) {
+ //todo 别人写的 下次在看
+    public ListNode removeNthFromEnd3(ListNode head, int n) {
         int pos = helper(head, n);
         // 说明删除的是头节点
         if(pos == n - 1) {
