@@ -33,26 +33,27 @@ public class Solution {
         return left.empty();
     }
 
+    /**
+     * 遍历s 碰到左括号就把对应的右括号压栈
+     * 碰到右括号的话判断 栈内无元素 或栈顶的右括号和当前遍历到的右括号不一样的话 return false
+     * 遍历结束后 return栈的状态
+     * @param s
+     * @return
+     */
     public boolean isValid2(String s) {
-        Map<Character, Character> map = new HashMap<>();
-        map.put(')', '(');
-        map.put('}', '{');
-        map.put(']', '[');
-        char[] chars = s.toCharArray();
         Stack<Character> stark = new Stack<>();
-        for (char aChar : chars) {
-            if (map.containsKey(aChar)) {
-                if (stark.size() == 0 || map.get(aChar) != stark.peek())
+        for (char c : s.toCharArray()) {
+            if(c=='(')
+                stark.push(')');
+            else if(c=='{')
+                stark.push('}');
+            else if(c=='[')
+                stark.push(']');
+            else{
+                if(stark.empty() || stark.pop()!=c)
                     return false;
-                else
-                    stark.pop();
-            } else
-                stark.push(aChar);
-
+            }
         }
-        if (stark.size() == 0)
-            return true;
-        else
-            return false;
+        return stark.empty();
     }
 }
