@@ -52,7 +52,7 @@ public class Solution {
         return tmp.next;
     }
 
- //todo 别人写的 下次在看
+    //todo 别人写的 下次在看
     public ListNode removeNthFromEnd3(ListNode head, int n) {
         int pos = helper(head, n);
         // 说明删除的是头节点
